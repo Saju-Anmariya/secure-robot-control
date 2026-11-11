@@ -1,0 +1,12 @@
+Before: {'x': 9.0, 'y': 7.0, 'heading': 90.0, 'speed': 0.0}
+Attacker sends 'left' with NO credentials -> 200
+After:  {'x': 9.0, 'y': 7.0, 'heading': 180.0, 'speed': 0.0}
+RESULT: robot controlled by an unauthenticated stranger.
+Operator sends: {'action': 'forward'}
+State after operator: {'x': 8.0, 'y': 7.0, 'heading': 180.0, 'speed': 0.0}
+Attacker replays the captured command...
+State after replay:    {'x': 7.0, 'y': 7.0, 'heading': 180.0, 'speed': 0.0}
+RESULT: replayed message was accepted again.
+Sent 300 commands in 0.32s (934 req/s)
+Status codes: {200: 300}
+RESULT: server accepted all of them, no rate limiting.
