@@ -1,6 +1,8 @@
+import os
+
 import requests
 
-BASE = "http://127.0.0.1:8000"
+BASE = os.environ.get("ROBOT_URL", "http://127.0.0.1:8000")
 
 
 def state():

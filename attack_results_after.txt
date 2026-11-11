@@ -1,0 +1,13 @@
+Before: {'x': 6.0, 'y': 5.0, 'heading': 0.0, 'speed': 0.0}
+Attacker sends 'left' with NO credentials -> 401
+After:  {'x': 6.0, 'y': 5.0, 'heading': 0.0, 'speed': 0.0}
+RESULT: attack blocked (HTTP 401).
+Operator sends signed 'forward' -> 200
+Attacker replays the captured message...
+Replay -> 401 {'detail': 'replay detected'}
+RESULT: replay blocked.
+Tampered command (stop -> forward) -> 401 {'detail': 'bad signature'}
+RESULT: tampering blocked.
+Sent 300 commands in 0.36s (835 req/s)
+Status codes: {401: 14, 429: 286}
+RESULT: rate limiting kicked in; 286 requests blocked.
